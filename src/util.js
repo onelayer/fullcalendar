@@ -57,7 +57,7 @@ function enableCursor() {
 
 // Given a total available height to fill, have `els` (essentially child rows) expand to accomodate.
 // By default, all elements that are shorter than the recommended height are expanded uniformly, not considering
-// any other els that are already too tall. if `shouldRedistribute` is on, it considers these tall rows and 
+// any other els that are already too tall. if `shouldRedistribute` is on, it considers these tall rows and
 // reduces the available height.
 function distributeHeight(els, availableHeight, shouldRedistribute) {
 
@@ -237,12 +237,12 @@ function getContentRect(el, origin) {
 // Returns the computed left/right/top/bottom scrollbar widths for the given jQuery element.
 // NOTE: should use clientLeft/clientTop, but very unreliable cross-browser.
 function getScrollbarWidths(el) {
-	var leftRightWidth = el.innerWidth() - el[0].clientWidth; // the paddings cancel out, leaving the scrollbars
+	var leftRightWidth = el[0].offsetWidth - el[0].clientWidth; // the paddings cancel out, leaving the scrollbars
 	var widths = {
 		left: 0,
 		right: 0,
 		top: 0,
-		bottom: el.innerHeight() - el[0].clientHeight // the paddings cancel out, leaving the bottom scrollbar
+		bottom: el[0].offsetHeight - el[0].clientHeight // the paddings cancel out, leaving the bottom scrollbar
 	};
 
 	if (getIsLeftRtlScrollbars() && el.css('direction') == 'rtl') { // is the scrollbar on the left side?
